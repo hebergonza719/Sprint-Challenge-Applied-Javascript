@@ -19,10 +19,10 @@ const topicsElement = document.querySelector('.topics');
 
 const axiosPromise = axios.get('https://lambda-times-backend.herokuapp.com/topics');
 
-console.log(axiosPromise);
+// console.log(axiosPromise);
 
 axiosPromise.then(response => {
-  console.log(response);
+  // console.log(response);
   const arrayTopics = response.data.topics;
   arrayTopics.forEach(topic => {
     topicsElement.appendChild(createTab(topic));
