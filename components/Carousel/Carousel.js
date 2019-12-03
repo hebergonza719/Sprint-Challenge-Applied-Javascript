@@ -17,3 +17,54 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function CreateCarousel() {
+  const carousel = document.createElement('div');
+  const divLeftBtn = document.createElement('div');
+  const imgCarouselOne = document.createElement('img');
+  const imgCarouselTwo = document.createElement('img');
+  const imgCarouselThree = document.createElement('img');
+  const imgCarouselFour = document.createElement('img');
+  const divRightBtn = document.createElement('div');
+
+  imgCarouselOne.src = "./assets/carousel/mountains.jpeg";
+  imgCarouselTwo.src = "./assets/carousel/computer.jpeg";
+  imgCarouselThree.src = "./assets/carousel/trees.jpeg";
+  imgCarouselFour.src = "./assets/carousel/turntable.jpeg";
+
+  carousel.classList.add('carousel');
+  divLeftBtn.classList.add('left-button');
+  divRightBtn.classList.add('right-button');
+
+  carousel.appendChild(divLeftBtn);
+  carousel.appendChild(imgCarouselOne);
+  carousel.appendChild(imgCarouselTwo);
+  carousel.appendChild(imgCarouselThree);
+  carousel.appendChild(imgCarouselFour);
+  carousel.appendChild(divRightBtn);
+
+  divRightBtn.addEventListener('click', () => {
+    imgCarouselTwo.style.display = "none";
+    imgCarouselThree.style.display = "none";
+  });
+
+  divLeftBtn.addEventListener('click', () => {
+    imgCarouselTwo.style.display = "inherit";
+    imgCarouselThree.style.display = "inherit";
+  });
+
+  return carousel;
+};
+
+const carouselCont = document.querySelector('.carousel-container');
+
+carouselCont.appendChild(CreateCarousel());
+
+const imgs = document.querySelectorAll('img');
+
+imgs.forEach(img => {
+  img.style.display = "inherit";
+});
+
+const topBar = document.querySelector('.top-bar');
+topBar.style.zIndex = "1";
